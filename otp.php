@@ -1,4 +1,5 @@
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
 </head>
 
 <body>
+
   <div class="container" id="container">
     <div class="form-container sign-up">
       <form>
@@ -28,8 +30,8 @@
         <br>
         <a href="#">Forget your Password?</a>
         <div style="display: inline;">
-            <button>Send To MObile</button>
-            <a style="margin-left: 15px" href="otp.php">To Email</a>        
+          <button>Send To MObile</button>
+          <a style="margin-left: 15px" href="otp.php">To Email</a>
         </div>
       </form>
     </div>
@@ -50,4 +52,5 @@
   </div>
 </body>
 <script src="./assets/script/js/script.js"></script>
+
 </html>
