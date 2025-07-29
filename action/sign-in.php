@@ -1,36 +1,28 @@
 <?php
-require_once('../config/loader.php');
+session_start();
+require_once '../includes/loader.php';
 
 if (isset($_POST['signin'])) {
     try {
-        // parametrs
-        $key = $_POST['key'];
+        $key = filter_input(INPUT_POST, 'key', FILTER_SANITIZE_STRING);
         $password = $_POST['password'];
 
-        // sql
-        $query = "SELECT * FROM `users` WHERE (username = :key OR mobile = :key OR email = :key) AND (password = :password) LIMIT 1";
-
-        // stmt
+        $query = "SELECT * FROM users WHERE (username = :key OR mobile = :key OR email = :key) AND is_verified = TRUE LIMIT 1";
         $stmt = $conn->prepare($query);
-
-        // bind
         $stmt->bindValue(":key", $key);
-        $stmt->bindValue(":password", $password);
-
-        // exe
         $stmt->execute();
+        $user = $stmt->fetch();
 
-        $hasUser = $stmt->rowCount();
-
-        if ($hasUser) {
+        if ($user && password_verify($password, $user['password'])) {
+            $_SESSION['user_id'] = $user['id'];
             header('Location: ../index.php?loginned=ok');
+            exit;
         } else {
             header('Location: ../index.php?notuser=ok');
+            exit;
         }
-
-        // echo "Created Account";
-        // header('Location: ../index.php');
     } catch (PDOException $e) {
-        echo "Your error message is : " . $e->getMessage();
+        header('Location: ../index.php?error=' . urlencode($e->getMessage()));
+        exit;
     }
 }
