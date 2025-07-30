@@ -39,8 +39,8 @@ if (isset($_POST['signup'])) {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'your_email@gmail.com'; // ایمیل شما
-        $mail->Password = 'your_app_password'; // رمز برنامه Gmail
+        $mail->Username = 'your_email@gmail.com';
+        $mail->Password = 'your_app_password'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
         $mail->CharSet = 'UTF-8';

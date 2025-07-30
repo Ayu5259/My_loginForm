@@ -18,7 +18,7 @@ require_once 'includes/loader.php';
 
 <body>
     <div class="container" id="container">
-        <!-- فرم ثبت‌نام -->
+        <!-- signup-->
         <div class="form-container sign-up">
             <form method="POST" action="./action/sign-up.php">
                 <h1>ایجاد حساب کاربری</h1>
@@ -37,7 +37,7 @@ require_once 'includes/loader.php';
             </form>
         </div>
 
-        <!-- فرم ورود -->
+        <!-- signin -->
         <div class="form-container sign-in">
             <form method="POST" action="action/sign-in.php">
                 <h1>ورود</h1>
@@ -62,7 +62,7 @@ require_once 'includes/loader.php';
             </form>
         </div>
 
-        <!-- پنل تغییر -->
+        <!-- otp -->
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
